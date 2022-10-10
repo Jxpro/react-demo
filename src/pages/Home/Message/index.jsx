@@ -19,7 +19,10 @@ export default class Message extends Component {
                             return (
                                 <li key={message.id}>
                                     {/* 向路由组件传递params参数 */}
-                                    <Link to={`/home/message/detail/${message.id}/${message.title}`}>{message.title}</Link>&nbsp;&nbsp;
+                                    {/* <Link to={`/home/message/detail/${message.id}/${message.title}`}>{message.title}</Link>&nbsp;&nbsp; */}
+
+                                    {/* 向路由组件传递search参数 */}
+                                    <Link to={`/home/message/detail/?id=${message.id}&title=${message.title}`}>{message.title}</Link>&nbsp;&nbsp;
                                 </li>
                             );
                         })
@@ -27,7 +30,10 @@ export default class Message extends Component {
                 </ul>
                 <hr />
                 {/* 声明接收params参数 */}
-                <Route path="/home/message/detail/:id/:title" component={Detail} />
+                {/* <Route path="/home/message/detail/:id/:title" component={Detail} /> */}
+
+                {/* search参数无需声明接受，正常注册即可 */}
+                <Route path="/home/message/detail" component={Detail} />
             </div>
         );
     }

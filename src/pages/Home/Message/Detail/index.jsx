@@ -10,7 +10,11 @@ const detailData = [
 export default class Detail extends Component {
     render() {
         // 接收params参数
-        const { id, title } = this.props.match.params;
+        // const { id, title } = this.props.match.params;
+
+        // 接收search参数
+        const { search } = this.props.location;
+        const { id, title } = qs.parse(search.slice(1));
         const findResult = detailData.find(detail => detail.id === id);
         return (
             <ul>
