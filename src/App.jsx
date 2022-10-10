@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import About from './pages/About';
 import Home from './pages/Home';
 import Header from './components/Header';
@@ -21,8 +21,14 @@ export default class App extends Component {
                     <div className="col-xs-6">
                         <div className="panel">
                             <div className="panel-body">
-                                <Route path="/about" component={About} />
-                                <Route path="/home" component={Home} />
+                                {/* 通常情况下，path和component是一一对应的关系， */}
+                                {/* 但存在一个path对应多个component时，也会展示多个component， */}
+                                {/* 所以React在进行路由匹配时，是按照路由的顺序匹配到底的， */}
+                                {/* 使用Switch进行包裹，可以提高路由匹配效率（单一匹配） */}
+                                <Switch>
+                                    <Route path="/about" component={About} />
+                                    <Route path="/home" component={Home} />
+                                </Switch>
                             </div>
                         </div>
                     </div>
