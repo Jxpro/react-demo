@@ -25,7 +25,8 @@ export default class Message extends Component {
                                     {/* <Link to={`/home/message/detail/?id=${message.id}&title=${message.title}`}>{message.title}</Link>&nbsp;&nbsp; */}
 
                                     {/* 向路由组件传递state参数 */}
-                                    <Link to={{ pathname: '/home/message/detail', state: { id: message.id, title: message.title } }}>{message.title}</Link>&nbsp;&nbsp;
+                                    {/* replace模式会将history.push改为history.replace */}
+                                    <Link replace to={{ pathname: '/home/message/detail', state: { id: message.id, title: message.title } }}>{message.title}</Link>&nbsp;&nbsp;
                                 </li>
                             );
                         })
