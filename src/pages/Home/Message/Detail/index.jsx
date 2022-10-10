@@ -13,9 +13,13 @@ export default class Detail extends Component {
         // const { id, title } = this.props.match.params;
 
         // 接收search参数
-        const { search } = this.props.location;
-        const { id, title } = qs.parse(search.slice(1));
-        const findResult = detailData.find(detail => detail.id === id);
+        // const { search } = this.props.location;
+        // const { id, title } = qs.parse(search.slice(1));
+
+        // 接收state参数
+        // || {} 防止刷新页面时，state为undefined
+        const { id, title } = this.props.location.state || {};
+        const findResult = detailData.find(detail => detail.id === id) || {};
         return (
             <ul>
                 <li>ID: {id}</li>
