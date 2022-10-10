@@ -26,6 +26,8 @@ export default class App extends Component {
                                 {/* 所以React在进行路由匹配时，是按照路由的顺序匹配到底的， */}
                                 {/* 使用Switch进行包裹，可以提高路由匹配效率（单一匹配） */}
                                 <Switch>
+                                    {/* exact[={ true }] 可开启路由严格匹配，一般不开，默认为模糊匹配*/}
+                                    {/* <Route exact path="/about" component={About} /> */}
                                     <Route path="/about" component={About} />
                                     <Route path="/home" component={Home} />
                                 </Switch>
